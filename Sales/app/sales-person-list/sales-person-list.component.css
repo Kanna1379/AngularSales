@@ -1,0 +1,17 @@
+.MetQuote{
+background-color:green
+}
+.NonMetQuote{
+   background-color:red; 
+}
+.form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 10%;
+        }
+ 

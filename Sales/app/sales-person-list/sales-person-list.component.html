@@ -1,0 +1,46 @@
+<h2>Sales Team</h2>
+<table border="1">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>SalesVolume</th>
+    </tr>
+    <tr *ngFor="let temp of salesPersonList" [ngClass]="{'MetQuote':temp.salary >= 40000,
+        'NonMetQuote': temp.salary < 40000}">
+        <td>{{temp.firstName}}</td>
+        <td>{{temp.lastName}}</td>
+        <td>{{temp.email}}</td>
+        <td>{{temp.salary}}</td>
+        <td>{{temp.salesVolume}}</td>
+        <td>
+            <div *ngIf="temp.salary >= 40000; else elseBlock">YES</div>
+            <ng-template #elseBlock>No</ng-template>
+        </td>
+    </tr>
+</table>
+&nbsp;
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+    <div class="form-control">
+        <label>First Name:</label>
+        <input type="text" name="firstName" ngModel/>
+    </div>
+    <div class="form-control">
+        <label>Last Name:</label>
+        <input type="text" name="lastName"  ngModel/>
+    </div>
+    <div class="form-control">
+        <label>Email:</label>
+        <input type="text" name="email"  ngModel/>
+    </div>
+    <div class="form-control">
+        <label>Salary:</label>
+        <input type="number" name="salary" ngModel/>
+    </div>
+    <div class="form-control">
+        <label>Sales Volume:</label>
+        <input type="number" name="salesVolume" ngModel/>
+    </div>
+        <button type="submit" >Submit</button>
+</form>
